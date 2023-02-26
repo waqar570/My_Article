@@ -2,7 +2,7 @@
   
     <div>
       <%= form.label :title %><br>
-      <%= form.text_field :text %>
+      <%= form.text_field :title %>
         <% article.errors.full_messages_for(:title).each do |message| %>
         <div><%= message %></div>
       <% end %>
@@ -10,7 +10,7 @@
   
     <div>
       <%= form.label :description %><br>
-      <%= form.text_area :text_area %><br>
+      <%= form.text_area :description %><br>
       <% article.errors.full_messages_for(:description).each do |message| %>
         <div><%= message %></div>
       <% end %>
@@ -19,7 +19,7 @@
     
     <div>
       <%= form.label :author_email %><br>
-      <%= form.text_area :text %><br>
+      <%= form.text_area :author_email %><br>
       <% article.errors.full_messages_for(:author_email).each do |message| %>
         <div><%= message %></div>
       <% end %>
