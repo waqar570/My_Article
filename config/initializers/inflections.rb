@@ -14,3 +14,12 @@
 # ActiveSupport::Inflector.inflections(:en) do |inflect|
 #   inflect.acronym 'RESTful'
 # end
+ActiveSupport::Inflector.inflections(:en) do |inflect|
+    inflect.acronym 'API'
+    inflect.irregular 'legacy', 'legacies'
+    inflect.uncountable 'rails_admin'
+    inflect.human 'jwt', 'JWT'
+    inflect.uncountable 'services'
+    inflect.irregular 'techh_scoop', 'techh_scoopp'
+end
+

@@ -13,6 +13,9 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
+    byebug
+    @article.image.attach(params[:article][:image])
+
     if @article.save
       MyEmailJob.perform_later
       # moved to model calback after_create
@@ -28,6 +31,8 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
+    @article.image.attach(params[:article][:image])
+
 
     if @article.update(article_params)
       redirect_to @article
@@ -45,6 +50,10 @@ class ArticlesController < ApplicationController
 
   private
     def article_params
-      params.require(:article).permit(:title, :description, :author_email)
+      params.require(:article).permit(:title, :description, :author_email, :image)
     end
 end
+
+
+
+
