@@ -14,7 +14,7 @@
       <td><%= article.title %></td>
       <td><%= article.description %></td>
       <td><%= article.author_email %></td>
-      <td><%= article.image %></td>
+      <td><%= image_tag(article.image, size: '250x250') if article.image.present? %></td>
       <td><%= link_to 'Show', article_path(article) %></td>
       <td><%= link_to 'Edit', edit_article_path(article) %></td>
       <td><%= link_to 'Destroy', article_path(article),

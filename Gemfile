@@ -58,5 +58,5 @@ gem 'sidekiq'
 gem 'letter_opener', group: :development
 gem 'activestorage'
 gem 'image_processing'
-gem 'carrierwave'
+
 

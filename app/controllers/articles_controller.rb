@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+  attr_accessor :image
+
   def index
     @articles = Article.all
   end
@@ -13,15 +15,13 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
-    byebug
-    @article.image.attach(params[:article][:image])
-
+    # @article.image = params[:article][:image]
     if @article.save
-      MyEmailJob.perform_later
-      # moved to model calback after_create
-      redirect_to(@article, :notice => 'Article is created')
+        MyEmailJob.perform_later
+        # moved to model calback after_create
+        redirect_to(@article, :notice => 'Article is created')
     else
-      render :new
+        render :new
     end
   end
 
@@ -31,11 +31,10 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
-    @article.image.attach(params[:article][:image])
-
-
     if @article.update(article_params)
-      redirect_to @article
+      flash[:notice] = "You have successfully updated the article."
+
+      redirect_to @article 
     else
       render :edit
     end
@@ -53,7 +52,5 @@ class ArticlesController < ApplicationController
       params.require(:article).permit(:title, :description, :author_email, :image)
     end
 end
-
-
 
 

@@ -1,4 +1,4 @@
 class ImageUploader < CarrierWave::Uploader::Base
-    storage :image
+    storage :file
 end
   

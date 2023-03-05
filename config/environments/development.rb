@@ -41,7 +41,8 @@ Rails.application.configure do
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
-  # Raise exceptions for disallowed deprecations.
+  # Raise exceptions for disallowed deprecations.  config.active_storage.service = :local
+
   config.active_support.disallowed_deprecation = :raise
 
   # Tell Active Support which deprecation messages to disallow.
@@ -76,5 +77,5 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
-  config.active_storage.service = :local
 end
+

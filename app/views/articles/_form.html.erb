@@ -27,12 +27,13 @@
 
     <div>
       <%= form.label :image %><br>
-      <%= form.file_field :image, multiple: true, direct_upload: true %><br>
+      <%= form.file_field :image  %><br>
       <% article.errors.full_messages_for(:image).each do |message| %>
         <div><%= message %></div>
       <% end %>
     </div>
-
+    
+    
     <div>
       <%= form.submit %>
     </div>
